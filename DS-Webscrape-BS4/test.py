@@ -3,10 +3,6 @@ import requests
 
 # requests is important for getting live HTML data from web rather than analyzing local HTML files (which you never really do in the first place..)
 
-# htmlTxt = requests.get("https://app.datacamp.com/learn/skill-tracks/sql-server-fundamentals")
-# print(htmlTxt)
-# getting a <response [503]> service unavaiable error
-
 # url = 'https://www.timesjobs.com/candidate/job-search.html?searchType=personalizedSearch&from=submit&txtKeywords=python&txtLocation='
 url = 'https://courseupload.net/advanced-stock-trading-course-strategies-freedow200321/'
 
@@ -27,6 +23,7 @@ soup = BeautifulSoup(htmlTxt.text, 'html.parser')
 
 # This actually did something
 job = soup.find_all("a", class_ = 'responsiveInfoTable')
+print(job)
 
 # --------originals---------
 # def cattest():
@@ -41,6 +38,5 @@ job = soup.find_all("a", class_ = 'responsiveInfoTable')
 
 # print(res)
 
-# job = soup.find_all("a", class_ = 'responsiveInfoTable')
 
 
