@@ -7,15 +7,23 @@ url = 'https://courseupload.net/advanced-stock-trading-course-strategies-freedow
 htmlTxt = requests.get(url)
 soup = BeautifulSoup(htmlTxt.text, 'html.parser')
 
-csvFile = open('dloadThese.csv', 'w', newline='')
-# file handler
-link_writer = csv.writer(csvFile, delimiter=',')
+
+
+
 
 # this works
 # from [stackoverflow](https://stackoverflow.com/questions/5041008/how-to-find-elements-by-class)
+# links = []
 for x in soup.find_all("a", {"class": "responsiveInfoTable"}):
-  # print(x['href'])
-  link_writer.writerow(x['href'])
+  print(x['href'])
+  # f.write(x['href'])
+
+
+
+
+# with open("./data/downloadThese.txt", "w", encoding='utf-8') as file:
+#   file.write(str(links))
+
 
 
 #-------------------old---------------------------
