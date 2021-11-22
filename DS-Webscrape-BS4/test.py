@@ -1,18 +1,37 @@
 from bs4 import BeautifulSoup
 import requests
+import csv
+
+
+url = 'https://courseupload.net/advanced-stock-trading-course-strategies-freedow200321/'
+htmlTxt = requests.get(url)
+soup = BeautifulSoup(htmlTxt.text, 'html.parser')
+
+csvFile = open('dloadThese.csv', 'w', newline='')
+# file handler
+link_writer = csv.writer(csvFile, delimiter=',')
+
+# this works
+# from [stackoverflow](https://stackoverflow.com/questions/5041008/how-to-find-elements-by-class)
+for x in soup.find_all("a", {"class": "responsiveInfoTable"}):
+  # print(x['href'])
+  link_writer.writerow(x['href'])
+
+
+#-------------------old---------------------------
 
 # requests is important for getting live HTML data from web rather than analyzing local HTML files (which you never really do in the first place..)
 
 # url = 'https://www.timesjobs.com/candidate/job-search.html?searchType=personalizedSearch&from=submit&txtKeywords=python&txtLocation='
-url = 'https://courseupload.net/advanced-stock-trading-course-strategies-freedow200321/'
+# url = 'https://courseupload.net/advanced-stock-trading-course-strategies-freedow200321/'
 
 
-htmlTxt = requests.get(url)
-print(htmlTxt)
+# htmlTxt = requests.get(url)
+# print(htmlTxt)
 # getting <Response [200]>
 # [the requst has succeeded](https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html)
 
-soup = BeautifulSoup(htmlTxt.text, 'html.parser')
+# soup = BeautifulSoup(htmlTxt.text, 'html.parser')
 # [element.text for s in soup.find_all('a', {"class": "responsiveInfoTable"}) for element in s.findChildren('href')]
 
 
@@ -22,8 +41,8 @@ soup = BeautifulSoup(htmlTxt.text, 'html.parser')
 #     print(categories)
 
 # This actually did something
-job = soup.find_all("a", class_ = 'responsiveInfoTable')
-print(job)
+# job = soup.find_all("a", class_ = 'responsiveInfoTable')
+# print(job)
 
 # --------originals---------
 # def cattest():
