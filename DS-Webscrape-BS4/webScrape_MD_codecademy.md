@@ -168,5 +168,12 @@ with open('./BuildMachineLearningModel_codecademy.html') as f:
 
 - perl script
 ```perl
+#!/usr/bin/perl
+open(IN, './out.txt');
+open(OUT, ">temp4.txt");
+
+
+while(<IN>){
+  print $_;
 
 ```
