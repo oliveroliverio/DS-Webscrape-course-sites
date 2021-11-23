@@ -3,9 +3,11 @@ import requests
 import csv
 
 
-url = 'https://courseupload.net/advanced-stock-trading-course-strategies-freedow200321/'
-htmlTxt = requests.get(url)
-soup = BeautifulSoup(htmlTxt.text, 'html.parser')
+# url = 'https://courseupload.net/advanced-stock-trading-course-strategies-freedow200321/'
+# htmlTxt = requests.get(url)
+# soup = BeautifulSoup(htmlTxt.text, 'html.parser')
+
+soup = BeautifulSoup('BuildMachineLearningModel_codecademy', 'html.parser')
 
 
 
