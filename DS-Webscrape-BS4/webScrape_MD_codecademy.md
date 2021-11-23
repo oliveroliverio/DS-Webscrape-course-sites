@@ -124,6 +124,28 @@ with open('./BuildMachineLearningModel_codecademy.html') as f:
 # moduleType "p" class = gamut-1p9yzoy-Text e8i0p5k0
 # moduleTitle "p" class = gamut-8ksv77-Text e8i0p5k0
 
+from bs4 import BeautifulSoup
 
+with open('./BuildMachineLearningModel_codecademy.html') as f:
+  #read File
+  content = f.read()
+  #parse HTML
+  soup = BeautifulSoup(content, 'html.parser')
+  for title1 in soup.find_all("h3", {"class": "gamut-btgy85-Text e8i0p5k0"}):
+    title1 = title1.text
+  for title2 in soup.find_all("h4", {"class": "gamut-nyxbiu-Text e8i0p5k0"}):
+    title2 = title2.text
+  for moduleType in soup.find_all("p", {"class": "gamut-1p9yzoy-Text e8i0p5k0"}):
+    moduleType = moduleType.text
+  for moduleTitle in soup.find_all("p", {"class": "gamut-8ksv77-Text e8i0p5k0"}):
+    moduleTitle = moduleTitle.text
+    print(moduleTitle)
+
+
+
+
+print(title1)
+print("\n")
+print(title2)
 
 ```
