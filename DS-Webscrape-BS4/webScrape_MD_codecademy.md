@@ -1,10 +1,19 @@
+# Testing if I can run python in markdown files
+works, but creates another file you have to close
+
+```python
 from bs4 import BeautifulSoup
 from selenium import webdriver
 import requests
 
 url = 'https://www.codecademy.com/learn/paths/machine-learning'
 
-# -----------Scraping function
+# # -----------testing webdriver
+browser = webdriver.Chrome()
+browser(url)
+print(browser)
+
+# # -----------Scraping function
 # html = requests.get(url)
 # soup = BeautifulSoup(html.text, 'html.parser')
 # for x in soup.find_all("div", {"class": "gamut-1efsrtw-Box ebnwbv90"}):
@@ -19,3 +28,4 @@ url = 'https://www.codecademy.com/learn/paths/machine-learning'
 # moduleType "p" class = gamut-1p9yzoy-Text e8i0p5k0
 # moduleTitle "p" class = gamut-8ksv77-Text e8i0p5k0
 
+```
