@@ -139,7 +139,7 @@ with open('./BuildMachineLearningModel_codecademy.html') as f:
     moduleType = moduleType.text
   for moduleTitle in soup.find_all("p", {"class": "gamut-8ksv77-Text e8i0p5k0"}):
     moduleTitle = moduleTitle.text
-    print(moduleTitle)
+    print(moduleType)
 
 
 
@@ -147,5 +147,26 @@ with open('./BuildMachineLearningModel_codecademy.html') as f:
 print(title1)
 print("\n")
 print(title2)
+
+```
+
+- Can't figure out how to have the nested text elements organized according to original document,
+- going to prettify the output with BS4, and just perl parse it..
+
+```python
+
+from bs4 import BeautifulSoup
+
+with open('./BuildMachineLearningModel_codecademy.html') as f:
+  #read File
+  content = f.read()
+  #parse HTML
+  soup = BeautifulSoup(content, 'html.parser')
+  with open('out.txt', 'w') as f:
+    print('Filename:', soup.prettify(), file=f)
+```
+
+- perl script
+```perl
 
 ```
